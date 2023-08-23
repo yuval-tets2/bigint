@@ -15,6 +15,7 @@ import { CustomerWhereUniqueInput } from "../../customer/base/CustomerWhereUniqu
 import { ValidateNested, IsOptional, IsNumber, IsInt } from "class-validator";
 import { Type } from "class-transformer";
 import { ProductWhereUniqueInput } from "../../product/base/ProductWhereUniqueInput";
+import GraphQLBigInt from "src/util/GraphQLBigInt";
 
 @InputType()
 class OrderCreateInput {
@@ -59,10 +60,10 @@ class OrderCreateInput {
   })
   @IsInt()
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GraphQLBigInt, {
     nullable: true,
   })
-  quantity?: number | null;
+  quantity?: bigint | null;
 
   @ApiProperty({
     required: false,

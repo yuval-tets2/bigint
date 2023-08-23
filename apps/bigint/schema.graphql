@@ -57,6 +57,9 @@ input AddressWhereUniqueInput {
   id: String!
 }
 
+"""GraphQL representation of BigInt"""
+scalar BigInt
+
 input Credentials {
   password: String!
   username: String!
@@ -194,7 +197,7 @@ type Order {
   discount: Float
   id: String!
   product: Product
-  quantity: Int
+  quantity: BigInt
   totalPrice: Float
   updatedAt: DateTime!
 }
@@ -203,7 +206,7 @@ input OrderCreateInput {
   customer: CustomerWhereUniqueInput
   discount: Float
   product: ProductWhereUniqueInput
-  quantity: Float
+  quantity: BigInt
   totalPrice: Float
 }
 

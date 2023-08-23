@@ -29,6 +29,12 @@ async function main() {
     })
   );
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  BigInt.prototype.toJSON = function () {
+    return this.toString();
+  };
+
   const document = SwaggerModule.createDocument(app, swaggerDocumentOptions);
 
   /** check if there is Public decorator for each path (action) and its method (findMany / findOne) on each controller */

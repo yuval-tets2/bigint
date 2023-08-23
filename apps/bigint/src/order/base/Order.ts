@@ -22,6 +22,7 @@ import {
 import { Type } from "class-transformer";
 import { Customer } from "../../customer/base/Customer";
 import { Product } from "../../product/base/Product";
+import GraphQLBigInt from "src/util/GraphQLBigInt";
 
 @ObjectType()
 class Order {
@@ -76,10 +77,10 @@ class Order {
   })
   @IsInt()
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GraphQLBigInt, {
     nullable: true,
   })
-  quantity!: number | null;
+  quantity!: bigint | null;
 
   @ApiProperty({
     required: false,
